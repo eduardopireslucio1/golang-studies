@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"os"
 	"io/ioutil"
+	"strings"
 )
 
 // Dup1 prints the text of each line that appears more than
@@ -61,7 +62,7 @@ func Dup2Exercise() {
 				fmt.Fprintf(os.Stderr, "dup2: %v\n", err)
 				continue
 			}
-			for _, line := string.Split(string(f), "\n") {
+			for _, line := range strings.Split(string(f), "\n") {
 				counts[line]++
 			}
 		}
