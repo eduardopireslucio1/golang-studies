@@ -23,7 +23,7 @@ func main() {
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
 		cyclesStr := r.FormValue("cycles")
 		if cyclesStr == "" {
-			fmt.Fprintln(w,"Param cycles is required.\n")
+			fmt.Printf("Param cycles is required.\n")
 			return
 		}
 		cycles, err := strconv.Atoi(cyclesStr)
