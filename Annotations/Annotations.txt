@@ -13,3 +13,46 @@ from a complete specification but illustrates many of the features that are avai
 %v any value in a natural format
 %T type of any value
 %% literal percent sign (no operand)
+
+-Control flow: 
+    We covered the two fundamental control-flow statements, if and for, but not the switch statement, which is a multi-way branch.
+    switch coinflip() {
+        case "heads":
+        heads++
+        case "tails":
+        tails++
+        default:
+        fmt.Println("landed on edge!")
+    }
+
+-Named Types:
+    A type declaration makes it possible to give a name to an existing type. Since struct types are often long, they are nearly always named. 
+    A familiar example is the definition of a Point type for a 2-D graphics system.
+    type Point struct {
+       X, Y int
+    }
+    var p Point
+
+-Pointers:
+    Go provides pointers, which are values that contain the address of a variable. In some languages, notably C, pointers
+    are relatively unconstrained. In other languages, pointers are disguised as 'references,' and there's not much that
+    can be done with them except pass them around. Go takes a position somewhere in the middle. Pointers are explicitly
+    visible. The '&' operator yields the address of a variable, and the '*' operator retrieves the variable that the pointer 
+    refers to, but there is no pointer arithmetic.
+
+-Methods and interfaces: 
+    A method is a function associated with a named type; Go is unusual in that methods may be attached 
+    to almost any named type. Methods are covered in Chapter 6. Interfaces are abstract types that let us treat different 
+    concrete types in the same way based on what methods they have, not how they are represented or implemented.
+
+-Packages: Go comes with an extensive standard library of useful packages, and the Go community has created and shared many more.
+    Programming is often more about using existing packages than about writing original code of one’s own. Throughout the book, 
+    we will point out a couple of dozen of the most important standard packages, but there are many more we don’t have space to mention, 
+    and we cannot provide anything remotely like a complete reference for any package.
+
+-Comments: We have already mentioned documentation comments at the beginning of a program or package. It's also good style to write a comment 
+    before the declaration of each function to specify its behavior. These conventions are important because they are used by tools like go doc 
+    and godoc to locate and display documentation (§10.7.4).
+    For comments that span multiple lines or appear within an expression or statement, there is also the /* ... */ notation familiar from other languages. 
+    Such comments are sometimes used at the beginning of a file for a large block of explanatory text to avoid a // on every line. Within a comment,
+    // and /* have no special meaning, so comments do not nest.
